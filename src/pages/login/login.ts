@@ -34,35 +34,35 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
-  // submitLogin(){
-  //   let that = this;
+  submitLogin(){
+    let that = this;
     
-  //   let loader = this.loadingController.create({
-  //     content: "Please wait..."
-  //   });
+    let loader = this.loadingController.create({
+      content: "Please wait..."
+    });
     
-  //   loader.present();
+    loader.present();
     
-  //   this.userProfileServiceProvider.loginUser(this.email, this.password).then(
-  //   authData => {
-  //     //successful
-  //     loader.dismiss();
-  //     that.navCtrl.setRoot(HomePage);
-  //   }, 
-  //   error => {
-  //     loader.dismiss();
-  //     // Unable to log in
-  //     let toast = this.toastController.create({
-  //       message: error,
-  //       duration: 3000,
-  //       position: 'top'
-  //     });
+    this.userProfileServiceProvider.loginUser(this.email, this.password).then(
+    authData => {
+      //successful
+      loader.dismiss();
+      that.navCtrl.setRoot(HomePage);
+    }, 
+    error => {
+      loader.dismiss();
+      // Unable to log in
+      let toast = this.toastController.create({
+        message: error,
+        duration: 3000,
+        position: 'top'
+      });
       
-  //     toast.present();
-  //     that.password = ""//empty the password field
+      toast.present();
+      that.password = ""//empty the password field
     
-  //   });
-  // }
+    });
+  }
 
   forgotPassword(){
 
