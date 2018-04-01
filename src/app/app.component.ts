@@ -6,11 +6,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
+import { UserProfileServiceProvider } from '../providers/user-profile-service/user-profile-service';
 
 import * as firebase from 'firebase';
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [UserProfileServiceProvider]
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
@@ -19,7 +21,8 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
+              public userProfileServiceProvider: UserProfileServiceProvider) {
 
     this.initializeApp();
 
@@ -34,6 +37,8 @@ export class MyApp {
         // ...
         console.log("############################################")
         console.log("already login.....")
+        console.log('user.email', user.email);
+        userProfileServiceProvider.userLogin = user.email;
         that.rootPage = HomePage;
       } else {
         // User is signed out.

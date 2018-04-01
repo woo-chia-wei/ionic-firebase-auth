@@ -14,6 +14,8 @@ export class UserProfileServiceProvider {
   private data: string;
   private fireAuth: any;
   private userProfile: any;
+  public userId: any;
+  public userLogin: string;
 
   constructor(public http: HttpClient) {
     console.log('Hello UserProfileServiceProvider Provider');
@@ -25,6 +27,20 @@ export class UserProfileServiceProvider {
 
   loginUser(email: string, password: string): any{
     return this.fireAuth.signInWithEmailAndPassword(email, password);
+  }
+
+  signUpUser(account: {}): any{
+    return this.fireAuth.createUserWithEmailAndPassword(account['email'], account['password']).then((newUser) => {
+      //sign in the user
+      this.fireAuth.signInWithEmailAndPassword(account['email'], account['password']).then((authenticatedUser) => {
+        //successful login, create user profile
+        this.userProfile.child(authenticatedUser.uid).set(
+          account
+        );
+
+        this.userId = authenticatedUser.uid;
+      });
+    });
   }
 
 }

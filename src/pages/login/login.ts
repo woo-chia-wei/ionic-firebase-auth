@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController, ToastController
 import * as firebase from 'firebase';
 import { HomePage } from '../home/home';
 import { UserProfileServiceProvider } from '../../providers/user-profile-service/user-profile-service';
+import { SignUpPage } from '../sign-up/sign-up';
 
 /**
  * Generated class for the LoginPage page.
@@ -68,7 +69,7 @@ export class LoginPage {
   }
 
   redirectToSignup(){
-
+    this.navCtrl.push(SignUpPage);
   }
 
 }
