@@ -12,6 +12,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import * as firebase from 'firebase';
 import { UserProfileServiceProvider } from '../providers/user-profile-service/user-profile-service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 export const config = {
   apiKey: "AIzaSyBHhUCCHW-br83ZINBTIAzyO-rkKwvt0xY",
@@ -32,6 +33,7 @@ firebase.initializeApp(config);
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],

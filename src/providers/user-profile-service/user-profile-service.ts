@@ -18,8 +18,9 @@ export class UserProfileServiceProvider {
   constructor(public http: HttpClient) {
     console.log('Hello UserProfileServiceProvider Provider');
 
-    // this.fireAuth = firebase.auth();
-    // this.userProfile = firebase.database().ref('users');
+    this.fireAuth = firebase.auth();
+    this.userProfile = firebase.database().ref('users');
+    console.log('userProfile', this.userProfile)
   }
 
   loginUser(email: string, password: string): any{
