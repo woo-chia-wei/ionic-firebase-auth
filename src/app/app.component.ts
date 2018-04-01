@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { LoginPage } from '../pages/login/login';
 
 import * as firebase from 'firebase';
 
@@ -22,19 +23,24 @@ export class MyApp {
 
     this.initializeApp();
 
+    let that = this;
+
+    console.log("############################################")
+    console.log("before firebase.auth().onAuthStateChanged.....")
+
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         // User is signed in.
         // ...
         console.log("############################################")
         console.log("already login.....")
-        this.rootPage = HomePage;
+        that.rootPage = HomePage;
       } else {
         // User is signed out.
         // ...
         console.log("############################################")
         console.log("not yet login.....")
-        // this.rootPage = LoginPage;
+        that.rootPage = LoginPage;
       }
     });
 
