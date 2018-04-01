@@ -26,32 +26,22 @@ export class MyApp {
 
     let that = this;
 
-    console.log("############################################")
-    console.log("before firebase.auth().onAuthStateChanged.....")
+    console.log("Check user login status...")
 
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
-        // User is signed in.
-        // ...
-        console.log("############################################")
-        console.log("already login.....")
-        console.log('user.email', user.email);
+        console.log("User is signed in...")
         that.rootPage = HomePage;
       } else {
-        // User is signed out.
-        // ...
-        console.log("############################################")
-        console.log("not yet login.....")
+        console.log("User is signed out...")
         that.rootPage = LoginPage;
       }
     });
 
-    
-
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      // { title: 'List', component: ListPage }
     ];
 
   }

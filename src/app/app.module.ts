@@ -15,15 +15,9 @@ import * as firebase from 'firebase';
 import { UserProfileServiceProvider } from '../providers/user-profile-service/user-profile-service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
-export const config = {
-  apiKey: "AIzaSyBHhUCCHW-br83ZINBTIAzyO-rkKwvt0xY",
-  authDomain: "ionic-auth-1d649.firebaseapp.com",
-  databaseURL:  "https://ionic-auth-1d649.firebaseio.com",
-  projectId: "ionic-auth-1d649",
-  storageBucket: "ionic-auth-1d649.appspot.com",
-  messagingSenderId: "38734180717"
-};
-firebase.initializeApp(config);
+import { FIREBASE_CONFIG } from '../environments/environment';
+
+firebase.initializeApp(FIREBASE_CONFIG);
 
 @NgModule({
   declarations: [

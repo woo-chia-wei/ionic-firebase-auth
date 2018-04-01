@@ -38,7 +38,8 @@ export class LoginPage {
     let that = this;
     
     let loader = this.loadingController.create({
-      content: "Please wait..."
+      content: "Please wait...",
+      duration: 3000
     });
     
     loader.present();
