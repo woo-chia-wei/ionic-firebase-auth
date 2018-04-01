@@ -9,6 +9,18 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import * as firebase from 'firebase';
+
+export const config = {
+  apiKey: "AIzaSyBHhUCCHW-br83ZINBTIAzyO-rkKwvt0xY",
+  authDomain: "ionic-auth-1d649.firebaseapp.com",
+  databaseURL:  "https://ionic-auth-1d649.firebaseio.com",
+  projectId: "ionic-auth-1d649",
+  storageBucket: "ionic-auth-1d649.appspot.com",
+  messagingSenderId: "38734180717"
+};
+firebase.initializeApp(config);
+
 @NgModule({
   declarations: [
     MyApp,
